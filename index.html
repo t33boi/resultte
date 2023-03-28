@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap');
+    *
+    {
+      padding: 0;
+      margin: 0;
+      font-family: 'Hanken Grotesk', sans-serif;
+    }
+    :root
+    {
+      --Lightred : hsl(0, 100%, 67%);
+      --Orangeyyellow : hsl(39, 100%, 56%);
+      --Greenteal: hsl(166, 100%, 37%);
+      --Cobaltblue: hsl(234, 85%, 45%);
+      --Lightslatebluebackground: hsl(252, 100%, 67%);
+      --Lightroyalbluebackground: hsl(241, 81%, 54%);
+      --Violetbluecircle: hsla(256, 72%, 46%, 1);
+      --Persianbluecircle: hsla(241, 72%, 46%, 0);
+      --White : hsl(0, 0%, 100%);
+      --Paleblue: hsl(221, 100%, 96%);
+      --Lightlavender: hsl(241, 100%, 89%);
+      --Darkgrayblue: hsl(224, 30%, 27%);
+    }
+    body
+    {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      
+    }
+    .container
+    {
+      width: 500px;
+      height: 350px;
+      background-color: hsl(0, 0%, 100%);
+      box-shadow: 0px 0px 10px blue;
+      display: flex;
+      border-radius: 25px;
+    }
+    .card1
+    {
+      background: linear-gradient(hsl(252, 100%, 67%),hsl(241, 81%, 54%));
+      border-radius: inherit;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: space-around;
+    }
+    .card1 h3
+    {
+      color: hsl(241, 100%, 89%);
+      font-size: 15px;
+    }
+    .card1 .circle
+    {
+      width: 150px;
+      height: 150px;
+      background-color: red;
+      text-align: center;
+      background: linear-gradient(135deg,hsla(256, 72%, 46%, 1),hsla(241, 72%, 46%, 0));
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .card1 .circle h1
+    {
+      color: hsl(0, 0%, 100%);
+      font-size: 50px;
+    }
+    .card1 .circle h6
+    {
+      color: hsl(166, 100%, 37%);
+      font-size: 13px;
+    }
+    .card1 .text h1
+    {
+      color: hsl(0, 0%, 100%);
+      font-size: 20px;
+    }
+    .card1 .text p 
+    {
+      width: 170px;
+      text-align: center;
+      font-size: 12px;
+      margin-top: 10px;
+      color: hsl(166, 100%, 37%);
+    }
+    .card2
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      flex-direction: column;
+    }
+    .card2 h2
+    {
+      text-align: start !important;
+      width: 100%;
+      font-size: 18px;
+      padding-left: 50px;
+    }
+    .card2 .contain 
+    {
+      width: 85%;
+      
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+     /* background-color: red; */
+      position: relative;
+    }
+    .card2 .contain .bar
+    {
+      position: relative;
+      width: 85%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: hsl(221, 100%, 96%);
+      background: linear-gradient(90deg,hsl(0, 0%, 100%)hsl(241, 100%, 89%));
+      padding: 15px;
+      margin: 5px;
+      font-size: 13px;
+      border-radius: 8px;
+      font-weight: 800;
+    }
+    .reac
+    {
+      color: hsl(0, 100%, 67%);
+    }
+    .memo
+    {
+      color: hsl(39, 100%, 56%);
+    }
+    .verb
+    {
+      color: hsl(166, 100%, 37%);
+    }
+    .visu
+    {
+      color: hsl(241, 81%, 54%);
+    }
+    .hundred
+    {
+      color: hsl(166, 100%, 37%);
+    }
+    .f
+    {
+      display: flex;
+      align-items:center ;
+      justify-content: space-between;
+    }
+    .btn > button
+    {
+      margin-top: 20px;
+      outline: none;
+      border: none;
+      padding: 10px 70px;
+      border-radius: 25px;
+      background-color: hsl(224, 30%, 27%);
+      color: hsl(0, 0%, 100%);
+      cursor: pointer;
+      transition: .2s;
+      box-shadow: 0 0 2px hsl(234, 85%, 45%);
+    }
+    .btn > button:hover
+    {
+      background-color: hsl(234, 85%, 45%);
+    }
+    @media(max-width : 375px)
+    {
+      .container
+      {
+        flex-direction: column;
+        height: 500px;
+        width: 350px;
+      }
+      .card1,.card2
+      {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Your Result
+  76
+  of 100
+
+  Great
+  You scored higher than 65% of the people who have taken these tests.
+  
+  Summary
+
+  Reaction
+  80 / 100
+
+  Memory
+  92 / 100
+
+  Verbal
+  61 / 100
+
+  Visual
+  72 / 100
+
+  Continue -->
+    <div class="container">
+      <div class="card1">
+        <h3>Your Result</h3>
+        <span class="circle">
+          <h1>76</h1>
+          <h6>of 100</h6>
+        </span>
+        <div class="text">
+          <h1>Great</h1>
+        <p>You scored higher than 65% of the people who have taken these tests</p>
+        </div>
+      </div>
+      <div class="card2">
+        <h2>Summary</h2>
+        <div class="contain">
+          <div id="bar1" class="bar"></div>
+          <div id="bar2" class="bar"></div>
+          <div id="bar3" class="bar"></div>
+          <div id="bar4" class="bar"></div>
+          <div class="btn">
+            <button>Continue</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <script>
+    fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+        const dataDiv1 = document.getElementById('bar1');
+        const dataDiv2 = document.getElementById('bar2');
+        const dataDiv3 = document.getElementById('bar3');
+        const dataDiv4 = document.getElementById('bar4');
+        dataDiv1.innerHTML = `<span class="reac f"><img src="${data[0].icon} " alt=""> ${data[0].category}</span>
+        <span>${data[0].score} <span class="hundred"> / 100</span></span>`;
+
+        
+        dataDiv2.innerHTML = `<span class="memo f"><img src="${data[1].icon} " alt=""> ${data[1].category}</span>
+        <span>${data[1].score} <span class="hundred"> / 100</span></span>`;
+
+
+        dataDiv3.innerHTML = `<span class="verb f"><img src="${data[2].icon} " alt=""> ${data[2].category}</span>
+        <span>${data[2].score} <span class="hundred"> / 100</span></span>`;
+
+        dataDiv4.innerHTML = `<span class="visu f"><img src="${data[3].icon} " alt=""> ${data[3].category}</span>
+        <span>${data[3].score} <span class="hundred"> / 100</span></span>`;
+  })
+      .catch(error => console.error(error));
+    </script>
+</body>
+</html>
